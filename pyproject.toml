@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aws-unused-finder"
+version = "0.1.0"
+description = "Find AWS resources you are paying for but not using. Read-only: it reports and never deletes."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Narayana Vemburaj" }]
+dependencies = ["boto3>=1.28"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "moto[ec2,elbv2,cloudwatch]>=5"]
+
+[project.scripts]
+aws-unused-finder = "aws_unused_finder.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
