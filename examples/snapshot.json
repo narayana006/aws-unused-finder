@@ -1,0 +1,262 @@
+{
+  "schema": 1,
+  "collected_at": "2026-11-10T14:26:30.455698+00:00",
+  "regions": {
+    "us-east-1": {
+      "errors": [],
+      "volumes": [
+        {
+          "VolumeId": "vol-8684779ba96c8113b",
+          "Name": "",
+          "Size": 8,
+          "VolumeType": "gp2",
+          "State": "in-use",
+          "CreateTime": "2026-11-10T14:26:30+00:00",
+          "AvailabilityZone": "us-east-1a"
+        },
+        {
+          "VolumeId": "vol-201290c0587e2de56",
+          "Name": "",
+          "Size": 8,
+          "VolumeType": "gp2",
+          "State": "in-use",
+          "CreateTime": "2026-11-10T14:26:30+00:00",
+          "AvailabilityZone": "us-east-1a"
+        },
+        {
+          "VolumeId": "vol-94a47345dba73d2e8",
+          "Name": "orders-db-data",
+          "Size": 50,
+          "VolumeType": "gp3",
+          "State": "in-use",
+          "CreateTime": "2026-11-10T14:26:30+00:00",
+          "AvailabilityZone": "us-east-1a"
+        },
+        {
+          "VolumeId": "vol-4d53f02373f5d4f78",
+          "Name": "old-reports-export",
+          "Size": 500,
+          "VolumeType": "gp2",
+          "State": "available",
+          "CreateTime": "2026-11-10T14:26:30+00:00",
+          "AvailabilityZone": "us-east-1a"
+        },
+        {
+          "VolumeId": "vol-886eb33248892d148",
+          "Name": "migration-scratch",
+          "Size": 100,
+          "VolumeType": "gp3",
+          "State": "available",
+          "CreateTime": "2026-11-10T14:26:30+00:00",
+          "AvailabilityZone": "us-east-1b"
+        }
+      ],
+      "snapshots": [
+        {
+          "SnapshotId": "snap-58c7af5eddc4feecb",
+          "Name": "",
+          "VolumeSize": 15,
+          "StartTime": "2026-04-24T14:26:29+00:00",
+          "Description": "Auto-created snapshot for AMI ami-0be27ab5a1109e698",
+          "StorageTier": "standard",
+          "State": "completed"
+        },
+        {
+          "SnapshotId": "snap-fcb3b42d133f81f38",
+          "Name": "reports-pre-migration",
+          "VolumeSize": 500,
+          "StartTime": "2025-09-24T14:26:29+00:00",
+          "Description": "before 2025 migration",
+          "StorageTier": "standard",
+          "State": "completed"
+        },
+        {
+          "SnapshotId": "snap-ab35ba37d51f27b12",
+          "Name": "orders-db-nightly",
+          "VolumeSize": 50,
+          "StartTime": "2026-11-10T14:26:30+00:00",
+          "Description": "nightly backup",
+          "StorageTier": "standard",
+          "State": "completed"
+        }
+      ],
+      "ami_snapshot_ids": [
+        "snap-58c7af5eddc4feecb"
+      ],
+      "addresses": [
+        {
+          "AllocationId": "eipalloc-85f10f30b496b72ed",
+          "PublicIp": "127.168.46.64",
+          "Name": "old-bastion",
+          "AssociationId": "",
+          "InstanceId": "",
+          "NetworkInterfaceId": ""
+        },
+        {
+          "AllocationId": "eipalloc-f12fb44060fffbaad",
+          "PublicIp": "127.70.230.160",
+          "Name": "",
+          "AssociationId": "eipassoc-0d24b2ee5a61ee6dd",
+          "InstanceId": "",
+          "NetworkInterfaceId": "eni-f67ebe3925b020aef"
+        },
+        {
+          "AllocationId": "eipalloc-314597ac17d273648",
+          "PublicIp": "127.29.220.23",
+          "Name": "",
+          "AssociationId": "eipassoc-6e5a90ac6211e2755",
+          "InstanceId": "",
+          "NetworkInterfaceId": "eni-43761d4d9352345a8"
+        }
+      ],
+      "load_balancers": [
+        {
+          "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/shop-web/6793ec813b0dc5ca",
+          "LoadBalancerName": "shop-web",
+          "Type": "application",
+          "State": "active",
+          "CreatedTime": "2026-11-10T14:26:30.423000+00:00",
+          "TargetGroups": [
+            {
+              "TargetGroupName": "shop-web-tg",
+              "TargetStates": [
+                "healthy"
+              ]
+            }
+          ]
+        },
+        {
+          "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/batch-internal/5b7df25ee0f1b3cc",
+          "LoadBalancerName": "batch-internal",
+          "Type": "application",
+          "State": "active",
+          "CreatedTime": "2026-11-10T14:26:30.432000+00:00",
+          "TargetGroups": [
+            {
+              "TargetGroupName": "batch-internal-tg",
+              "TargetStates": [
+                "unused"
+              ]
+            }
+          ]
+        },
+        {
+          "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/demo-2025/28a61569f2bc8de5",
+          "LoadBalancerName": "demo-2025",
+          "Type": "application",
+          "State": "active",
+          "CreatedTime": "2026-11-10T14:26:30.438000+00:00",
+          "TargetGroups": [
+            {
+              "TargetGroupName": "demo-2025-tg",
+              "TargetStates": []
+            }
+          ]
+        }
+      ],
+      "security_groups": [
+        {
+          "GroupId": "sg-a259b7241800039c5",
+          "GroupName": "default",
+          "VpcId": "vpc-360c3e08b37047ff9",
+          "Description": "default VPC security group",
+          "ReferencesGroupIds": []
+        },
+        {
+          "GroupId": "sg-da5964c5dc5a2f6bc",
+          "GroupName": "default",
+          "VpcId": "vpc-581e8f74596c2305e",
+          "Description": "default VPC security group",
+          "ReferencesGroupIds": []
+        },
+        {
+          "GroupId": "sg-45c8da7e195773f49",
+          "GroupName": "app-servers",
+          "VpcId": "vpc-581e8f74596c2305e",
+          "Description": "app tier",
+          "ReferencesGroupIds": []
+        },
+        {
+          "GroupId": "sg-f9d0c172973cde8bb",
+          "GroupName": "legacy-app",
+          "VpcId": "vpc-581e8f74596c2305e",
+          "Description": "old app tier",
+          "ReferencesGroupIds": []
+        },
+        {
+          "GroupId": "sg-a47567c963cc40168",
+          "GroupName": "legacy-db",
+          "VpcId": "vpc-581e8f74596c2305e",
+          "Description": "old database",
+          "ReferencesGroupIds": [
+            "sg-f9d0c172973cde8bb"
+          ]
+        }
+      ],
+      "eni_group_ids": [
+        "sg-45c8da7e195773f49",
+        "sg-da5964c5dc5a2f6bc"
+      ],
+      "nat_gateways": [
+        {
+          "NatGatewayId": "nat-a8ec312ef0ed92650",
+          "Name": "prod-egress",
+          "State": "available",
+          "VpcId": "vpc-581e8f74596c2305e",
+          "SubnetId": "subnet-695080a20a0510209",
+          "CreateTime": "2026-07-13T14:26:29+00:00",
+          "TrafficBytes": 48000000000.0,
+          "TrafficDays": 14
+        },
+        {
+          "NatGatewayId": "nat-fc1afac50020f4705",
+          "Name": "staging-egress",
+          "State": "available",
+          "VpcId": "vpc-581e8f74596c2305e",
+          "SubnetId": "subnet-11d5b4a6eb9a2776b",
+          "CreateTime": "2026-07-13T14:26:29+00:00",
+          "TrafficBytes": 0.0,
+          "TrafficDays": 14
+        }
+      ]
+    },
+    "eu-west-1": {
+      "errors": [],
+      "volumes": [
+        {
+          "VolumeId": "vol-1f4d30195cf8b57ff",
+          "Name": "poc-data",
+          "Size": 20,
+          "VolumeType": "gp3",
+          "State": "available",
+          "CreateTime": "2026-11-10T14:26:30+00:00",
+          "AvailabilityZone": "eu-west-1a"
+        }
+      ],
+      "snapshots": [],
+      "ami_snapshot_ids": [],
+      "addresses": [
+        {
+          "AllocationId": "eipalloc-11bc4c238d5ab8e44",
+          "PublicIp": "127.20.86.63",
+          "Name": "poc-ingress",
+          "AssociationId": "",
+          "InstanceId": "",
+          "NetworkInterfaceId": ""
+        }
+      ],
+      "load_balancers": [],
+      "security_groups": [
+        {
+          "GroupId": "sg-60decf024ee864b0d",
+          "GroupName": "default",
+          "VpcId": "vpc-481d0412b0b20c51b",
+          "Description": "default VPC security group",
+          "ReferencesGroupIds": []
+        }
+      ],
+      "eni_group_ids": [],
+      "nat_gateways": []
+    }
+  }
+}
